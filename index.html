@@ -40,15 +40,15 @@
 // get firebase database reference...
 var messagesRef = firebase.database().ref('data');
 document.getElementById('form').addEventListener('submit', submitForm);
+function getInputVal(id){
+  return document.getElementById(id).value;
+}
 var name = getInputVal('name');
   var email = getInputVal('email');
   var password = getInputVal('password');
   saveMessage(name, email, password);
   function submitForm(e){
   e.preventDefault();
-  function getInputVal(id){
-  return document.getElementById(id).value;
-}
 
 // Save message to firebase
 function saveMessage(name, email, password){
