@@ -46,7 +46,6 @@ function getInputVal(id){
 var name = getInputVal('name');
   var email = getInputVal('email');
   var password = getInputVal('password');
-  saveMessage(name, email, password);
   function submitForm(e){
   e.preventDefault();
 
@@ -58,6 +57,7 @@ function saveMessage(name, email, password){
     password:password,
     email:email,
   });}
+	   saveMessage(name, email, password);
   }</script>
 	<!-- <div class="poojit_sign_in">
 		<form action="#">
