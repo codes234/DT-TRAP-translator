@@ -41,7 +41,7 @@
 var messagesRef = firebase.database().ref('data');
 document.getElementById('form').addEventListener('submit', submitForm);
 function getInputVal(id){
-  return document.getElementById(id);
+  return document.getElementById(id).value(id);
 }
 var name = getInputVal('name');
   var email = getInputVal('email');
