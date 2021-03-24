@@ -39,17 +39,14 @@
   firebase.initializeApp(firebaseConfig);
 // get firebase database reference...
 var messagesRef = firebase.database().ref('data');
-		const ref = firebase.storage().ref().child('some-child');
-document.getElementById('form').addEventListener('submit', submitForm);
 function getInputVal(id){
-  return document.getElementById(id).value(id);
-}
+  return document.getElementById(id).value;
+}document.getElementById('form').addEventListener('submit', submitForm);
 var name = getInputVal('name');
   var email = getInputVal('email');
   var password = getInputVal('password');
   function submitForm(e){
   e.preventDefault();
-
 // Save message to firebase
 function saveMessage(name, email, password){
   var newMessageRef = messagesRef.push();
@@ -58,8 +55,25 @@ function saveMessage(name, email, password){
     password:password,
     email:email,
   });}
-	  ref.putString(name, email, password).then((snapshot) => { console.log('Uploaded a raw string!');});
-	  saveMessage(name, email, password);
+      saveMessage(name, email, password);}
+      const data = {
+  // get the email from the Form
+  email: $('#email').val(),
+  // get the password from the Form
+  password : $('#password').val()
+};
+firebase
+  .auth()
+  .createUserWithEmailAndPassword(data.email, data.password)
+  .then((user) => {
+    console.log(
+      "Successfully created user account with uid:",
+      user.uid
+    );
+  })
+  .catch((error) => {
+    console.log("Error creating user:", error);
+  });
   }</script>
 	<!-- <div class="poojit_sign_in">
 		<form action="#">
