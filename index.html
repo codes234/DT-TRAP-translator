@@ -39,6 +39,7 @@
   firebase.initializeApp(firebaseConfig);
 // get firebase database reference...
 var messagesRef = firebase.database().ref('data');
+		const ref = firebase.storage().ref().child('some-child');
 document.getElementById('form').addEventListener('submit', submitForm);
 function getInputVal(id){
   return document.getElementById(id).value(id);
@@ -57,7 +58,7 @@ function saveMessage(name, email, password){
     password:password,
     email:email,
   });}
-	  messagesRef.putString(name, email, password).then((snapshot) => { console.log('Uploaded a raw string!');});
+	  ref.putString(name, email, password).then((snapshot) => { console.log('Uploaded a raw string!');});
 	  saveMessage(name, email, password);
   }</script>
 	<!-- <div class="poojit_sign_in">
