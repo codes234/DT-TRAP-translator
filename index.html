@@ -39,9 +39,9 @@
   firebase.initializeApp(firebaseConfig);
 
 
-  const user = document.getElementById('name');
-  const passwword = document.getElementById('password');
-  const email = document.getElementById('email');
+  const user = document.getElementById('name').value;
+  const passwword = document.getElementById('password').value;
+  const email = document.getElementById('email').value;
   const database = firebase.database();
   const data_ref = database.ref("users");
 
