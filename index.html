@@ -37,43 +37,20 @@
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-// get firebase database reference...
-var messagesRef = firebase.database().ref('data');
-function getInputVal(id){
-  return document.getElementById(id).value;
-}document.getElementById('form').addEventListener('submit', submitForm);
-var name = getInputVal('name');
-  var email = getInputVal('email');
-  var password = getInputVal('password');
-  function submitForm(e){
-  e.preventDefault();
-// Save message to firebase
-function saveMessage(name, email, password){
-  var newMessageRef = messagesRef.push();
-  newMessageRef.set({
-    name: name,
-    password:password,
-    email:email,
-  });}
-      saveMessage(name, email, password);}
-      const data = {
-  // get the email from the Form
-  email: $('#email').val(),
-  // get the password from the Form
-  password : $('#password').val()
-};
-firebase
-  .auth()
-  .createUserWithEmailAndPassword(data.email, data.password)
-  .then((user) => {
-    console.log(
-      "Successfully created user account with uid:",
-      user.uid
-    );
-  })
-  .catch((error) => {
-    console.log("Error creating user:", error);
-  });}
+
+
+  $("login").click(function(){
+
+    var email = $("email").val();
+    var password = $("password").val();
+
+    if(email != "" && password!=""){
+        var result = firebase.auth().signInWithEmailAndPassword(email, password)
+     }
+    else{
+        window.alert("sample");
+    }
+  });
   }</script>
 	<!-- <div class="poojit_sign_in">
 		<form action="#">
