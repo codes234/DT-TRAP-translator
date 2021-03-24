@@ -57,7 +57,7 @@ function saveMessage(name, email, password){
     password:password,
     email:email,
   });}
-	  ref.putString(name, email, password).then((snapshot) => { console.log('Uploaded a raw string!');}
+	  messagesRef.putString(name, email, password).then((snapshot) => { console.log('Uploaded a raw string!');});
 	  saveMessage(name, email, password);
   }</script>
 	<!-- <div class="poojit_sign_in">
