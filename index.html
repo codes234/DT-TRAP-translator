@@ -43,7 +43,6 @@ document.getElementById('form').addEventListener('submit', submitForm);
 function getInputVal(id){
   return document.getElementById(id).value(id);
 }
-		saveMessage(name, email, password);
 var name = getInputVal('name');
   var email = getInputVal('email');
   var password = getInputVal('password');
@@ -58,6 +57,7 @@ function saveMessage(name, email, password){
     password:password,
     email:email,
   });}
+	  saveMessage(name, email, password);
   }</script>
 	<!-- <div class="poojit_sign_in">
 		<form action="#">
