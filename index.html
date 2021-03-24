@@ -39,19 +39,20 @@
   firebase.initializeApp(firebaseConfig);
 
 
-  $("login").click(function(){
+  const user = document.getElementById('name');
+  const passwword = document.getElementById('password');
+  const email = document.getElementById('email');
+  const database = firebase.database();
+  const data_ref = database.ref("users");
 
-    var email = $("email").val();
-    var password = $("password").val();
-
-    if(email != "" && password!=""){
-        var result = firebase.auth().signInWithEmailAndPassword(email, password)
-     }
-    else{
-        window.alert("sample");
-    }
-  });
-  }</script>
+login.addEventListener('click', e => {
+    e.preventDefault();
+    data_ref.child(user.value).set({
+        sample: user,
+        sample1: passwword
+    });
+});
+</script>
 	<!-- <div class="poojit_sign_in">
 		<form action="#">
 			<h1>Sign in</h1>
