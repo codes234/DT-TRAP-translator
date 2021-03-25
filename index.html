@@ -2,7 +2,7 @@
 <html>
     <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	     <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
  <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
  <link rel="stylesheet" href="style.css">
  <script src = "main.js"></script>
@@ -17,42 +17,13 @@
 				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
 			</div>
 			
-			<input type="text" class = "name" placeholder="Name" required/>
-			<input type="email" class = "email" placeholder="Email" required/>
-			<input type="password" class = "password" placeholder="Password" required/>
-            <button  class="up" id = "login">Sign Up</button>
+			<input type="text" id = "name" placeholder="Name" required/>
+			<input type="email" id = "email" placeholder="Email" required/>
+			<input type="password" id = "password" placeholder="Password" required/>
+            <button  class="up" id = "login" onclick = "writedata">Sign Up</button>
             <a href = "secondary.html">login</a>
-		</form>
+		</form> 
 	</div>
-	<script>
-	var firebaseConfig = {
-    apiKey: "AIzaSyBlIAlJVzeTcvdy-ohcpjOxog7IVOT-cuA",
-    authDomain: "skill-dev-chat-demo.firebaseapp.com",
-    databaseURL: "https://skill-dev-chat-demo-default-rtdb.firebaseio.com",
-    projectId: "skill-dev-chat-demo",
-    storageBucket: "skill-dev-chat-demo.appspot.com",
-    messagingSenderId: "684332738792",
-    appId: "1:684332738792:web:e69f7a4e6ea15e6a03415d",
-    measurementId: "G-T8CK5T490M"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-
-
-  const user = document.getElementById('name').value;
-  const passwword = document.getElementById('password').value;
-  const email = document.getElementById('email').value;
-  const database = firebase.database();
-  const data_ref = database.ref("users");
-
-login.addEventListener('click', e => {
-    e.preventDefault();
-    data_ref.child(user.value).set({
-        sample: user,
-        sample1: passwword
-    });
-});
-</script>
 	<!-- <div class="poojit_sign_in">
 		<form action="#">
 			<h1>Sign in</h1>
@@ -81,7 +52,28 @@ login.addEventListener('click', e => {
 				<button class="ghost" id="signUp">Sign Up</button>
 			</div> -->
 		</div>
-	</div> -->
-</div>
+	</div>
+</div><script>
+    var firebaseConfig = {
+    apiKey: "AIzaSyBlIAlJVzeTcvdy-ohcpjOxog7IVOT-cuA",
+    authDomain: "skill-dev-chat-demo.firebaseapp.com",
+    databaseURL: "https://skill-dev-chat-demo-default-rtdb.firebaseio.com",
+    projectId: "skill-dev-chat-demo",
+    storageBucket: "skill-dev-chat-demo.appspot.com",
+    messagingSenderId: "684332738792",
+    appId: "1:684332738792:web:e69f7a4e6ea15e6a03415d",
+    measurementId: "G-T8CK5T490M"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+function writedata(){
+firebase.database().ref("user").set({
+    name:"sample",
+    email: "sample"
+});
+}
+
+</script>
 </body>
 </html>
