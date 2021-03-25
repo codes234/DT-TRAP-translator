@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -69,19 +67,18 @@
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
 
-var myFirebase = firebase.database().ref();
+var database = firebase.database().ref();
 
 // Get a reference to the recommendations object of your Firebase.
 // Note: this doesn't exist yet. But when we write to our Firebase using
 // this reference, it will create this object for us!
-var recommendations = myFirebase.child("recommendations");
+var recommendations = database.child("users");
 
 // Push our first recommendation to the end of the list and assign it a
 // unique ID automatically.
 recommendations.push({
-    "title": "The danger of a single story",
-    "presenter": "Chimamanda Ngozi Adichie",
-    "link": "https://www.ted.com/talks/chimamanda_adichie_the_danger_of_a_single_story"
+    "user_name": document.getElementById("demo");,
+    "email": "Chimamanda Ngozi Adichie"
 });
 
 </script>
