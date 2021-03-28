@@ -5,7 +5,6 @@
 <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
  <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
  <link rel="stylesheet" href="style.css">
- <script src = "main.js"></script>
 </head>
 <body>
 <!-- <div class="container" id="container">
@@ -33,7 +32,7 @@
 			</div>
 			<input id = "email" type="email" placeholder="Email" required/>
 			<input id = "password" type="password" placeholder="Password" required/>
-			<a href="#" class="forgot">Forgot your password?</a>
+			<a href="forgotpassword.htm" class="forgot">Forgot your password?</a>
 			<button class="in">Sign In</button>
 		</form>
 	</div>
@@ -51,16 +50,16 @@
 			</div> -->
 		</div>
 	</div>
-</div><script>
-    var firebaseConfig = {
-    apiKey: "AIzaSyBlIAlJVzeTcvdy-ohcpjOxog7IVOT-cuA",
-    authDomain: "skill-dev-chat-demo.firebaseapp.com",
-    databaseURL: "https://skill-dev-chat-demo-default-rtdb.firebaseio.com",
-    projectId: "skill-dev-chat-demo",
-    storageBucket: "skill-dev-chat-demo.appspot.com",
-    messagingSenderId: "684332738792",
-    appId: "1:684332738792:web:e69f7a4e6ea15e6a03415d",
-    measurementId: "G-T8CK5T490M"
+</div><button onclick = "auth()" class = "google">sign in with Google</button><script>
+var firebaseConfig = {
+    apiKey: "AIzaSyCyo1XnrTLb0rTziCn8JGacC9KUJwnCVPk",
+    authDomain: "blogy-skill-cloud.firebaseapp.com",
+    databaseURL: "https://blogy-skill-cloud-default-rtdb.firebaseio.com",
+    projectId: "blogy-skill-cloud",
+    storageBucket: "blogy-skill-cloud.appspot.com",
+    messagingSenderId: "1051285052721",
+    appId: "1:1051285052721:web:b6388cc0823dd5ff49a410",
+    measurementId: "G-G88YG8WXE0"
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
@@ -86,6 +85,26 @@ BtnEle.addEventListener("click", () => {
     "email": email,
     "password": password
   });
+});
+</script>
+<script>
+ let  click = document.querySelector(".google");
+     function auth() {      
+     // Google provider object is created here.
+     click.addEventListener("click", () => {
+    var provider = new firebase.auth.GoogleAuthProvider();
+
+               
+    // using the object we will authenticate the user.
+    firebase.auth().signInWithPopup(provider);});
+};
+</script><script>firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in.
+    location.replace("https://blogy-skill-cloud.web.app/home.html")
+  } else {
+    // No user is signed in.
+  }
 });
 </script>
 </body>
